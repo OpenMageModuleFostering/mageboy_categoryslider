@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Mageboy_Categoryslider",
+    "type": "magento-module",
+    "license": "Open-Software-License-(OSL)",
+    "homepage": "",
+    "description": "Extension allows to upload slider images for specific category as a category slider. ",
+    "authors": [
+    {
+        "name": "krishna ijjada",
+        "email": "krishnaijjada@outlook.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
