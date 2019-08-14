@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Frontend layout
+ *
+ * @author Krishna Ijjada
+ */
+-->
+
+<layout version="1.9.1">     
+    <catalog_category_default>
+        <reference name="content">
+           <block type="categoryslider/index" name="categoryslider_index" template="categoryslider/index.phtml"  before="-"/>
+        </reference>
+    </catalog_category_default>
+    <catalog_category_layered>
+        <reference name="content">
+           <block type="categoryslider/index" name="categoryslider_index" template="categoryslider/index.phtml" before="-"/>
+        </reference>
+    </catalog_category_layered>
+</layout>
+	

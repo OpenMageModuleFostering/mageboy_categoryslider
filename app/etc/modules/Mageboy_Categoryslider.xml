@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Module initial config
+ *
+ * @author Krishna Ijjada
+ */
+-->
+<config>
+    <modules>
+        <Mageboy_Categoryslider>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Mageboy_Categoryslider>
+    </modules>
+</config>

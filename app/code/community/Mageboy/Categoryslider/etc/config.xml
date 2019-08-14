@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Module configuration
+ *
+ * @author Krishna Ijjada
+ */
+-->
+<config>
+    <modules>
+        <Mageboy_Categoryslider>
+            <version>0.1.1</version>    <!-- Version of module -->
+        </Mageboy_Categoryslider>
+    </modules>
+    <frontend>
+         <layout>
+            <updates>
+                <mageboy_categoryslider>
+                    <file>categoryslider.xml</file> <!-- Our layout file name-->
+                </mageboy_categoryslider>
+            </updates>
+         </layout>
+    </frontend>
+
+
+
+  <global>
+    <helpers>
+      <categoryslider>
+        <class>Mageboy_Categoryslider_Helper</class>
+      </categoryslider>
+    </helpers>
+    <blocks>
+       <categoryslider>
+		<class>Mageboy_Categoryslider_Block</class>
+       </categoryslider>
+    </blocks>
+    <models>
+	<categoryslider>
+	        <class>Mageboy_Categoryslider_Model</class>
+		<resourceModel>categoryslider_mysql4</resourceModel>
+	</categoryslider>
+    </models>
+    <resources>
+	<categoryslider_setup>
+		<setup>
+		  <module>Mageboy_Categoryslider</module>
+                  <class>Mage_Eav_Model_Entity_Setup</class>
+		</setup>
+	</categoryslider_setup>
+    </resources>
+  </global>
+  <default>
+     <generalsetting><!-- tag of the system.xml section -->
+        <categoryslidergroup><!-- tag of the system.xml group -->
+            <slidespeed>3000</slidespeed><!-- tag of the system.xml field -->
+            <bannerloop>1</bannerloop>
+            <styletype>1</styletype>
+        </categoryslidergroup>
+     </generalsetting>
+  </default>
+</config>

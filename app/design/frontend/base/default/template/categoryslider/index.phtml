@@ -1,0 +1,149 @@
+
+<?php
+
+/**
+ * Category slider template for separate item
+ *
+ * @author Krishna Ijjada
+ * 
+ * Package Mageboy_Categoryslider
+ * 
+ */
+?>
+
+
+<?php
+
+    $slide_status = $this->getResponsivebannersliderEnabled();
+    $slide_speed = $this->getResponsivebannersliderSpeed();
+    $slide_type = $this->getResponsivebannerSlideType();
+    $slide_BannerLoop = $this->getResponsivebannerBannerLoop();
+    $slide_PauseOnhover=$this->getResponsivebannerPauseOnhover();
+
+    $_current_category = Mage::registry('current_category');
+    $_total_images = array();
+    $_total_images[] = $_current_category->getSlider_imageone();
+    $_total_images[] = $_current_category->getSlider_imagetwo();
+    $_total_images[] = $_current_category->getSlider_imagethree();
+    $_total_images = array_filter($_total_images);
+    $count_tatal = count($_total_images);
+    $_imageurl = Mage::getBaseUrl('media').'catalog/category/';
+    if( $slide_status==1 && $count_tatal != 0 ){
+
+    //%%%%%%%%%%%%%%%%%%%%%%%%%%% Fade type one %%%%%%%%%%%%%%%%%%%%%%%%%%%//
+
+
+       if($slide_type=='2'){ 
+
+	$cssurl =  str_replace('index.php/','',$this->getUrl());?>
+<link rel="stylesheet" type="text/css" href="<?php echo $cssurl.'skin/frontend/base/default/categoryslider/css/generic-nav.css'; ?>" media="all">
+<link rel="stylesheet" type="text/css" href="<?php echo $cssurl.'skin/frontend/base/default/categoryslider/css/grid12.css'; ?>" media="all">
+<script type="text/javascript" src="<?php echo $cssurl.'skin/frontend/base/default/categoryslider/js/jquery-1.js'; ?>"></script>
+<script type="text/javascript" src="<?php echo $cssurl.'skin/frontend/base/default/categoryslider/js/jquery-noconflict.js'; ?>"></script>
+<script type="text/javascript" src="<?php echo $cssurl.'skin/frontend/base/default/categoryslider/js/jquery_004.js'; ?>"></script>
+<script type="text/javascript" src="<?php echo $cssurl.'skin/frontend/base/default/categoryslider/js/jquery_003.js'; ?>"></script> 
+
+<!-- BEGIN GOOGLE ANALYTICS CODEs -->
+ 
+ 
+<div class="the-slideshow-wrapper nested-container clearer">
+<div style="height: 428px;" class="the-slideshow  gen-slider-arrows2 gen-slider-pager1 gen-slider-pager1-pos-bottom-right grid12-9  ">
+
+<ul class="slides">
+<?php 
+
+/***** Slider code *********/
+
+foreach($_total_images as $imagename)
+    {
+     $media_url =  Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA);
+     $imgurl = $_imageurl.$imagename;  ?>
+	<li style="width: 100%; float: left; margin-right: -100%; position: relative; display: none;" class="slide">
+	    <img src="<?php echo $_imageurl.$imagename; ?>" alt="<?php echo $title; ?>" title="<?php echo $title; ?>">
+	</li>
+<?php 
+   } 
+    ?>
+</ul>
+ 
+</div>
+</div>
+
+<!-- BEGIN GOOGLE ANALYTICS CODEs -->
+
+<script type="text/javascript">
+//<![CDATA[
+	categoryslider = jQuery.noConflict(); 
+	categoryslider(window).load(function(){
+	categoryslider('.the-slideshow').flexslider({
+		namespace:"",
+		animation:'fade',
+		easing:'easeInOutCirc',
+		useCSS:	false,
+		animationLoop:<?php echo $slide_BannerLoop; ?>,
+		smoothHeight: true,
+		slideshowSpeed:<?php echo $slide_speed; ?>,
+		animationSpeed:	600,
+		pauseOnHover:<?php echo $slide_PauseOnhover; ?>
+		});
+	});
+//]]>
+</script>    
+
+<?php 
+
+}  
+
+
+
+	//%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide Type One %%%%%%%%%%%%%%%%%%%%%%%%%%%//
+
+ if($slide_type =='1')
+     {
+     $cssurl =  str_replace('index.php/','',$this->getUrl());?>
+     <link rel="stylesheet" type="text/css" href="<?php echo $cssurl.'skin/frontend/base/default/categoryslider/css/generic-nav.css'; ?>" media="all">
+     <link rel="stylesheet" type="text/css" href="<?php echo $cssurl.'skin/frontend/base/default/categoryslider/css/grid12.css'; ?>" media="all">
+     <script type="text/javascript" src="<?php echo $cssurl.'skin/frontend/base/default/categoryslider/js/jquery-1.7.2.min.js'; ?>"></script>
+     <script type="text/javascript" src="<?php echo $cssurl.'skin/frontend/base/default/categoryslider/js/jquery.easing.min.js'; ?>"></script>
+     <script type="text/javascript" src="<?php echo $cssurl.'skin/frontend/base/default/categoryslider/js/jquery.flexslider.min.js'; ?>"></script>
+	<div class="the-slideshow gen-slider-arrows2 gen-slider-pager1 gen-slider-pager1-pos-bottom-right grid12-9  ">
+		<ul class="slides" style="padding:0px!important;">
+<?php 
+
+foreach($_total_images as $imagename) {
+       $media_url =  Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA);
+       $imgurl = $_imageurl.$imagename;
+?>
+       <li style="width: 100%; float: left; margin-right: -100%; position: relative; display: none;" class="slide">
+       <img src="<?php echo $_imageurl.$imagename; ?>" alt="<?php echo $title; ?>" title="<?php echo $title; ?>">
+       </li>
+       <?php 
+          } 
+             ?>
+       </ul>
+   </div>
+    
+   <script type="text/javascript">
+        //<![CDATA[
+	   categoryslider = jQuery.noConflict(); 
+	   categoryslider(window).load(function(){
+	   categoryslider('.the-slideshow').flexslider({
+		namespace:"",
+		animation:'slide',
+		easing:'easeInOutCirc',
+		useCSS:	false,
+		animationLoop:<?php echo $slide_BannerLoop; ?>,
+		smoothHeight: true,
+		slideshowSpeed:<?php echo $slide_speed; ?>,
+		animationSpeed:	600,
+		pauseOnHover:<?php echo $slide_PauseOnhover; ?>
+	   });
+	});
+	//]]>
+</script>  
+
+<?php
+
+      } 
+ }
+ 
