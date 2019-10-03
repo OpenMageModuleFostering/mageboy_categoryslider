@@ -1,3 +1,5 @@
+
+
 ## Original Package Description
 
 Extension allows to upload slider images for specific category as a category slider.
